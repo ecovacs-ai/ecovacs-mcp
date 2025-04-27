@@ -155,6 +155,46 @@ python3 -m ecovacs_robot_mcp
 
 <img src="images/img_v3_02lo_b450632b-9dbe-4cd9-aead-c625ad3458fg.jpg" alt="获取AK" width="600" />
 
+## 配置
+
+在任意MCP客户端（如Claude.app）中添加如下配置，部分客户端下可能需要做一些格式化调整。
+
+其中 `ECO_API_KEY`为API访问密钥
+`ECO_API_URL`为API HOST
+
+- Using uvx
+```json
+{
+  "mcpServers": {
+    "ecovacs_mcp": {
+      "command": "uvx",
+      "args": ["ecovacs-robot-mcp"],
+      "env": {
+        "ECO_API_KEY": "your AK...........",
+        "ECO_API_URL": "https://open.ecovacs.cn" // 如果是非中国内地，配置为 https://open.ecovacs.com
+      }
+    }
+  }
+}
+```
+
+- Using pip installation
+
+```json
+{
+  "mcpServers": {
+    "ecovacs_mcp": {
+      "command": "python",
+      "args": ["-m", "ecovacs-robot-mcp"],
+      "env": {
+          "ECO_API_KEY": "your AK...........",
+          "ECO_API_URL": "https://open.ecovacs.cn" // 如果是非中国内地，配置为 https://open.ecovacs.com
+      }
+    }
+  }
+}
+
+```
 ## 使用示例（Claude示列）
 
 打开Claude for Desktop的Setting，切换到Developer，点击Edit Config，用任意的IDE打开配置文件。
@@ -169,16 +209,11 @@ python3 -m ecovacs_robot_mcp
 {
     "mcpServers": {
         "ecovacs_mcp": {
-            "command": "/Users/home/.local/bin/uv",
-            "args": [
-                "--directory",
-                "/Users/home/ecovacs-mcp-main/ecovacs_mcp",
-                "run",
-                "robot_mcp_stdio.py"
-            ],
+            "command": "python3",
+            "args": ["-m", "ecovacs_robot_mcp"],
             "env": {
-                "ECO_API_KEY": "your AK...........",
-                "ECO_API_URL": "https://open.ecovacs.cn" // 如果是非中国内地，配置为 https://open.ecovacs.com
+                "ECO_API_KEY": "your ak......",
+                "ECO_API_URL": "https://open.ecovacs.cn"// 如果是非中国内地，配置为 https://open.ecovacs.com
             }
         }
     }

@@ -155,6 +155,48 @@ Ecovacs Open Platform (Outside Mainland China): https://open.ecovacs.com
 
 <img src="images/img_v3_02lo_89450768-dcc4-49df-a875-f537131bd8fg.jpg" alt="Get AK" width="600" />
 
+
+## Configuration
+
+Add the following configuration to any MCP client (such as Claude.app). Some clients may require formatting adjustments.
+
+`ECO_API_KEY` is the API access key
+`ECO_API_URL` is the API HOST
+
+- Using uvx
+```json
+{
+  "mcpServers": {
+    "ecovacs_mcp": {
+      "command": "uvx",
+      "args": ["ecovacs-robot-mcp"],
+      "env": {
+        "ECO_API_KEY": "your AK...........",
+        "ECO_API_URL": "https://open.ecovacs.cn" // For regions outside Mainland China, configure as https://open.ecovacs.com
+      }
+    }
+  }
+}
+```
+
+- Using pip installation
+
+```json
+{
+  "mcpServers": {
+    "ecovacs_mcp": {
+      "command": "python",
+      "args": ["-m", "ecovacs-robot-mcp"],
+      "env": {
+          "ECO_API_KEY": "your AK...........",
+          "ECO_API_URL": "https://open.ecovacs.cn" // For regions outside Mainland China, configure as https://open.ecovacs.com
+      }
+    }
+  }
+}
+
+```
+
 ## Usage Example (Claude Example)
 
 Open Claude for Desktop's Setting, switch to Developer, click Edit Config, and open the configuration file with any IDE.
@@ -165,27 +207,21 @@ Open Claude for Desktop's Setting, switch to Developer, click Edit Config, and o
 
 Add the following configuration to the configuration file. ECO_API_KEY is the AK for accessing the Ecovacs Open Platform API, which can be obtained from [this page](https://open.ecovacs.cn/preparationForUse):
 
+
 ```json
 {
     "mcpServers": {
         "ecovacs_mcp": {
-            "command": "/Users/home/.local/bin/uv",
-            "args": [
-                "--directory",
-                "/Users/home/ecovacs-mcp-main/ecovacs_mcp",
-                "run",
-                "robot_mcp_stdio.py"
-            ],
+            "command": "python3",
+            "args": ["-m", "ecovacs_robot_mcp"],
             "env": {
-                "ECO_API_KEY": "your AK...........",
-                "ECO_API_URL": "https://open.ecovacs.cn" 
-              // For regions outside Mainland China, configure as https://open.ecovacs.com
+                "ECO_API_KEY": "your ak......",
+                "ECO_API_URL": "https://open.ecovacs.cn" // For regions outside Mainland China, configure as https://open.ecovacs.com
             }
         }
     }
 }
 ```
-
 Restart Claude, and the settings panel will successfully load the Ecovacs Robot MCP Server. In the main interface dialog, you can see 4 available MCP tools. Click to view details.
 
 <img src="images/img_v3_02lm_e1b700d6-9693-4448-8acf-d622f28b3b3g.jpg" alt="Claude MCP Tools" width="600" />
