@@ -205,7 +205,7 @@ Open Claude for Desktop's Setting, switch to Developer, click Edit Config, and o
 
 <img src="images/img_v3_02lm_2ced9293-af22-4d9f-a70c-337643a93c7g.jpg" alt="Claude Configuration File" width="600" />
 
-Add the following configuration to the configuration file. ECO_API_KEY is the AK for accessing the Ecovacs Open Platform API, which can be obtained from [this page](https://open.ecovacs.cn/preparationForUse):
+Add the following configuration to the configuration file. ECO_API_KEY is the AK for accessing the Ecovacs Open Platform API, which can be obtained from [this page](https://open.ecovacs.com/preparationForUse):
 
 
 ```json
