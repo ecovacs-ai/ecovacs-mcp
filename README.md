@@ -243,8 +243,8 @@ python3 -m ecovacs_robot_mcp
 {
   "mcpServers": {
     "robot_control_server": {
-      "url": "https://open.ecovacs.cn/sse?ak=your ak"
-      // For regions outside Mainland China, configure as https://open.ecovacs.com/sse?ak=your ak
+      "url": "https://mcp-open.ecovacs.cn/sse?ak=your ak"
+      // For regions outside Mainland China, configure as https://mcp-open.ecovacs.com/sse?ak=your ak
     }
   }
 }
@@ -254,7 +254,7 @@ python3 -m ecovacs_robot_mcp
 {
   "mcpServers": {
     "robot_control_server": {
-      "url": "https://open.ecovacs.com/sse?ak=your ak"
+      "url": "https://mcp-open.ecovacs.com/sse?ak=your ak"
     }
   }
 }
